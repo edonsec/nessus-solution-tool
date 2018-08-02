@@ -4,6 +4,9 @@ class PlainTextPresenter(object):
 
     def display(self, issue):
         print "\033[1m{title}\033[0m\n".format(title=issue.issue)
-        print "{solution}\n\n".format(solution=issue.solution)
-        print "{url}\n".format(url=issue.url)
-    
+
+        if not issue.solution:
+            print "Unable to find details."
+        else:
+            print "{solution}\n".format(solution=issue.solution)
+            print "{url}\n".format(url=issue.url)

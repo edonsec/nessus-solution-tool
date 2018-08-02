@@ -9,7 +9,7 @@ def main():
     parser.add_argument("-f", "--file", help="Input file containing issues to lookup")
 
     args = parser.parse_args()
-    presenter = PlainTextPresenter(IssueApi())
+    presenter = PlainTextPresenter()
     issue_api = IssueApi()
 
     if not args.issue and not args.file:

@@ -7,6 +7,9 @@ class IssueApi(Api):
 
     def get_issue(self, term):
         results = self.search(term)
-        correct_entry = [x for x in results['props']['pageProps']['plugins'] if x['_source']['script_name'] == term][0]
+        correct_entry = [x for x in results['props']['pageProps']['plugins'] if x['_source']['script_name'].lower() == term.lower()]
 
-        return Entry(nessus_id=correct_entry['_id'], issue=term, description=description['_source']['description'], solution=correct_entry['_source']['solution']  
+        if len(correct_entry) == 0:
+            return Entry(issue=term)
+
+        return Entry(nessus_id=correct_entryi[0]['_id'], issue=term, description=correct_entry[0]['_source']['description'], solution=correct_entry[0]['_source']['solution'])

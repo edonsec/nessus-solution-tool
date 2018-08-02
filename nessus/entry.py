@@ -5,7 +5,7 @@ class Entry(object):
     solution = None
     url = None
 
-    def __init__(self, nessus_id, issue, description, solution):
+    def __init__(self, nessus_id=None, issue=None, description=None, solution=None):
         self.nessus_id = nessus_id
         self.issue = issue
         self.description = description
