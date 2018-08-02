@@ -12,4 +12,4 @@ class IssueApi(Api):
         if len(correct_entry) == 0:
             return Entry(issue=term)
 
-        return Entry(nessus_id=correct_entryi[0]['_id'], issue=term, description=correct_entry[0]['_source']['description'], solution=correct_entry[0]['_source']['solution'])
+        return Entry(nessus_id=correct_entry[0]['_id'], issue=term, description=correct_entry[0]['_source']['description'], solution=correct_entry[0]['_source']['solution'])
